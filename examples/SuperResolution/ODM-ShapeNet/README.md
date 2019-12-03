@@ -1,6 +1,6 @@
 # Example: ODM-superresolution 
 
-These example scripts lets you train a voxel superresolution network on the ShapeNet Dataset using a Orthographic Deppth Maps(ODMS). For details on the algorithms see: "Multi-View Silhouette and Depth Decomposition for High Resolution 3D Object Representation" : https://arxiv.org/abs/1802.09987. There are two training schemes, one using which Directly predicts superresolves ODMs (Direct), and one which seperates the problem into rccupancy and residual predictions (MVD). 
+These example scripts lets you train a voxel superresolution network on the ShapeNet Dataset using a Orthographic Depth Maps(ODMS). For details on the algorithms see: "Multi-View Silhouette and Depth Decomposition for High Resolution 3D Object Representation" : https://arxiv.org/abs/1802.09987. There are two training schemes, one which Directly predicts superresolves ODMs (Direct), and one which separates the problem into occupancy and residual predictions (MVD). 
 
 
 ### Training the network: Direct
