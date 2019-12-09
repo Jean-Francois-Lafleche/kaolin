@@ -21,7 +21,7 @@ def up_sample(inp):
     return NN_pred
 
 
-def to_occpumancy_map(inp, threshold=None):
+def to_occupancy_map(inp, threshold=None):
     if threshold is None: 
         threshold = inp.shape[-1]
     zeros = inp < threshold
