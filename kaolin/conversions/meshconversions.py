@@ -13,8 +13,6 @@
 # limitations under the License.
 
 import torch
-import os
-import torch.nn.functional as F
 import numpy as np
 import kaolin
 
@@ -60,7 +58,7 @@ def trianglemesh_to_voxelgrid(mesh: kaolin.rep.Mesh, resolution: int,
 
     Args:
         mesh (kaolin.rep.Mesh): mesh to convert
-        resolution (int): desired dresolution of generated voxel array
+        resolution (int): desired resolution of generated voxel array
         normalize (bool): Determines whether to normalize vertices to a
             unit cube centered at the origin.
         vertex_offset (float): Offset applied to all vertices after
@@ -75,6 +73,7 @@ def trianglemesh_to_voxelgrid(mesh: kaolin.rep.Mesh, resolution: int,
         >>> voxel.shape
 
     """
+    device = mesh.vertices.device
     mesh = kal.rep.Mesh.from_tensors(mesh.vertices.clone(), mesh.faces.clone())
     if normalize:
         verts_max = mesh.vertices.max()
@@ -134,7 +133,7 @@ def trianglemesh_to_voxelgrid(mesh: kaolin.rep.Mesh, resolution: int,
 
     del(v1, v2, v3)
 
-    voxel = torch.zeros((resolution, resolution, resolution))
+    voxel = torch.zeros((resolution, resolution, resolution), device=device)
     points = (points * (resolution - 1)).long()
     points = torch.split(points.permute(1, 0), 1, dim=0)
     points = [m.unsqueeze(0) for m in points]
