@@ -9,4 +9,3 @@ steps:
   - source setenv.sh
   - python setup.py develop
   - pytest --cov=kaolin/ tests/
-  
