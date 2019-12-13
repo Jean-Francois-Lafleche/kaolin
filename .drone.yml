@@ -1,0 +1,11 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: test
+  image: "pytorch/pytorch:1.2-cuda10.0-cudnn7-devel"
+  commands:
+  - source setenv.sh
+  - python setup.py develop
+  - pytest --cov=kaolin/ tests/
