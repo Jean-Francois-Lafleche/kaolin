@@ -13,7 +13,7 @@
 # 0.8
 pipeline:
   tests:
-    image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
+    image: pytorch:1.2-cuda10.0-cudnn7-devel
     commands:
       - source setenv.sh
       - python setup.py develop
