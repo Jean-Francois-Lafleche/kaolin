@@ -3,16 +3,10 @@ type: docker
 name: default
 
 steps:
-- name: nvidia-smi
-  runtime: nvidia
-  image: nvidia/cuda
-  commands:
-  - ls /usr/bin/
-  - nvidia-smi
-
 - name: test
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
+  - /bin/bash
   - pip install opencv-python
   - source setenv.sh
   - python setup.py develop
