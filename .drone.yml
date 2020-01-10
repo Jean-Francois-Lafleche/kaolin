@@ -7,6 +7,7 @@ steps:
   runtime: nvidia
   image: nvidia/cuda
   commands:
+  - echo /usr/bin/
   - nvidia-smi
 
 - name: test
