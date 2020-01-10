@@ -6,6 +6,7 @@ steps:
 - name: test
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
+  - /bin/bash -c "pip install opencv-python"
   - /bin/bash -c "source setenv.sh"
   - /bin/bash -c "python setup.py develop"
   - /bin/bash -c "pytest --cov=kaolin/ tests/"
