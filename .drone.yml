@@ -7,8 +7,8 @@ steps:
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
   - /bin/bash -c "source setenv.sh"
-  - /bin/bash -c "echo $LD_SHARED_LIBRARIES"
-  - /bin/bash -c "source setenv.sh; echo $LD_SHARED_LIBRARIES"
+  - /bin/bash -c "echo $LD_LIBRARY_PATH"
+  - /bin/bash -c "source setenv.sh; echo $LD_LIBRARY_PATH"
 
 
 # 0.8
