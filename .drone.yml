@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: nvidia-smi
-  runetime: nvidia
+  runtime: nvidia
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
   - /bin/bash -c "nvidia-smi"
