@@ -8,8 +8,7 @@ steps:
   commands:
   - /bin/bash -c "source setenv.sh"
   - /bin/bash -c "echo $LD_SHARED_LIBRARIES"
-  - /bin/bash -c "python setup.py develop"
-  - /bin/bash -c "pytest --cov=kaolin/ tests/"
+  - /bin/bash -c "source setenv.sh; echo $LD_SHARED_LIBRARIES"
 
 
 # 0.8
