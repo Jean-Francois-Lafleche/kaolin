@@ -5,6 +5,10 @@ name: default
 steps:
 - name: nvidia-smi
   runtime: nvidia
+  devices:
+  - /dev/nvidia0:/dev/nvidia0
+  - /dev/nvidiactl:/dev/nvidiactl
+  - /dev/nvidia-uvm:/dev/nvidia-uvm
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
   - /bin/bash -c "nvidia-smi"
