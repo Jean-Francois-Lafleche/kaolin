@@ -6,7 +6,7 @@ steps:
 - name: nvidia-smi
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
-  - nvidia-smi
+  - /bin/bash -c "nvidia-smi"
 
 - name: test
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
