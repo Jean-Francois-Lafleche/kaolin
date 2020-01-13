@@ -1,0 +1,16 @@
+image: "pytorch/pytorch:1.2-cuda10.0-cudnn7-devel"
+
+before_script:
+  - pip install --upgrade pip>=18.0.0
+
+stages:
+  - test
+
+test:
+  tags: 
+    - kaolin
+  stage: test
+  script:
+    - source setenv.sh
+    - python setup.py develop
+    - pytest --cov=kaolin/ tests/

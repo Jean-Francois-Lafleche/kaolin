@@ -5,7 +5,7 @@
 
 ## Kaolin: A PyTorch Library for Accelerating 3D Deep Learning Research
 
-**[Documentation](http://nvidiagameworks.github.io/kaolin)** | **[Paper](https://arxiv.org/abs/1911.05063)**
+**[Documentation](https://kaolin.readthedocs.io/en/latest/)** | **[Paper](https://arxiv.org/abs/1911.05063)**
 
 
 Kaolin is a PyTorch library aiming to accelerate 3D deep learning research. Kaolin provides efficient implementations of differentiable 3D modules for use in deep learning systems. With functionality to load and preprocess several popular 3D datasets, and native functions to manipulate meshes, pointclouds, signed distance functions, and voxel grids, Kaolin mitigates the need to write wasteful boilerplate code. Kaolin packages together several differentiable graphics modules including rendering, lighting, shading, and view warping. Kaolin also supports an array of loss functions and evaluation metrics for seamless evaluation and provides visualization functionality to render the 3D results. Importantly, we curate a comprehensive model zoo comprising many state-of-the-art 3D deep learning architectures, to serve as a starting point for future research endeavours.
@@ -53,31 +53,43 @@ Kaolin curates a large _model zoo_ containing reference implementations of popul
 
 > **NOTE**: The API is currently somewhat unstable, as we're making constant changes. (It's a beta release)
 
-### Supported Platforms
-Kaolin is officially supported on Linux platforms and has been built and tested on Ubuntu 18. Windows and Mac support should be considered experimental.
+### Requirements
+- Linux
+- Python >= 3.6
+- CUDA >= 10.0.130 (with `nvcc` installed)
+- Display Driver >= 410.48
 
-### Install Kaolin
+Windows support is in the works and is currently considered experimental.
 
-We highly recommend installing Kaolin inside of a virtual environment (such as ones created using `conda` or `virtualenv`). Kaolin expects Python 3.6+, and currently needs a CUDA-enabled machine (i.e., with `nvcc` installed) for the build.
+### Dependencies
+- numpy >= 1.17
+- PyTorch >= 1.2 and Torchvision (see [pytorch.org](http://pytorch.org) for installation instructions)
 
-First create a virtual environment. In this example, we show how to create a `conda` virtual environment for installing kaolin.
+### Installation
+
+We highly recommend installing Kaolin inside of a virtual environment (such as ones created using `conda` or `virtualenv`). In this example, we show how to create a `conda` virtual environment for installing kaolin.
 ```sh
 $ conda create --name kaolin python=3.6
 $ conda activate kaolin
 ```
 
-Now, install the dependencies (`numpy` and `torch`). Note that the setup file does not automatically install these dependencies.
-```sh
-conda install numpy
-```
+#### Dependencies
+Install PyTorch and Torchvision by following instructions from https://pytorch.org/. Numpy will be installed as part of the Pytorch installation. Note that the setup file does not automatically install these dependencies.
 
-Install PyTorch, by following instructions from https://pytorch.org/
-
+#### Install Kaolin
 Now, you can install the library. From the root directory of this repo (i.e., the directory containing this `README` file), run
 
+##### For General Use
 ```sh
+$ python setup.py build_ext --inplace   # optional, allows importing kaolin from the kaolin root directory
 $ python setup.py install
 ```
+
+##### For Development (modifying kaolin code)
+```sh
+$ python setup.py develop
+```
+Note, if modifying or adding Cython files, ensure that Cython is installed and set the following environment variable `USE_CYTHON=1`.
 
 During installation, the *packman* package manager will 
 download the nv-usd package to `~/packman-repo/` containing the necessary packages for reading and writing Universal Scene Description (USD) files. 
@@ -188,7 +200,7 @@ If you find this library useful, consider citing the following paper:
 
 ## Contributors for borrowed sources
 
-Here is a list of all authors on relevant research papers that Kaolin borrows code from. Without the efforts of these folks (and their willingness to release their implementations under permissable copyleft licenses), Kaolin would not have been possible.
+Here is a list of all authors on relevant research papers that Kaolin borrows code from. Without the efforts of these folks (and their willingness to release their implementations under permissive open-source licenses), Kaolin would not have been possible.
 
 * Kornia: Edgar Riba, Dmytro Mishkin, Daniel Ponsa, Ethan Rublee and Gary Bradski. [[Paper](https://arxiv.org/pdf/1910.02190.pdf)] [[Code](https://github.com/kornia/kornia)]
 * Occupancy Networks: Lars Mescheder, Michael Oechsle, Michael Niemeyer, Sebastian Nowozin, Andreas Geiger. [[Paper](https://avg.is.tuebingen.mpg.de/publications/occupancy-networks)] [[Code](https://github.com/autonomousvision/occupancy_networks)]

@@ -1,16 +1,31 @@
-# DIB-Renderer
+# DIB-Renderer Example
 
+![example image with vertex color](vertex-color.gif)
+![example image with texture](textured.gif)
 
-### Build the renderer
+This example uses the DIB-R renderer in kaolin to render a simple mesh, and output an animated GIF image of the rendered object.
 
+Usage:
+
+To render the mesh using vertex position as vertex color:
+
+```bash
+python example.py
 ```
-cd cuda
-python build.py install
+
+To render a textured mesh:
+
+```bash
+python example.py --use_texture
 ```
 
-### Citation
+By default, the example will render the `banana.obj` mesh in this directory, and output the result into a `results` folder in this directory.
 
-If you use this code, please cite:
+If `--use_texture` is specified, the example will use the `texture.png` image in this directory as texture. To use your own texture, add the option `--texture <path-to-texture>`.
+
+Use the `--help` option to display available arguments.
+
+The DIB-R renderer is based on its original implementation by Wenzheng et al.
 
 ```
 @inproceedings{chen2019dibrender,
