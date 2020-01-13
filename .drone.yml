@@ -6,9 +6,9 @@ steps:
 - name: test
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
-  - . ./setenv.sh
-  - echo $LD_LIBRARY_PATH
-  - /bin/bash -c "source setenv.sh; echo $LD_LIBRARY_PATH"
+  - ls /data/ShapeNet/
+  - touch /data/ShapeNet/FOO.bar
+  - ls /data/ShapeNet/
 
 
 # 0.8
