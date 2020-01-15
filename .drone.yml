@@ -7,7 +7,7 @@ steps:
     image: banzaicloud/drone-kaniko
     settings:
       registry: registry:5000
-      image: registry:5000/kaolin
+      repo: registry:5000/kaolin
       tags: ${DRONE_COMMIT_SHA}
       cache: true
   - name: test
