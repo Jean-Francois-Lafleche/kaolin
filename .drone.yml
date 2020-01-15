@@ -3,19 +3,22 @@ type: docker
 name: default
 
 steps:
-- name: build
-  image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
-  commands:
-  - docker build -t kaolin
+  - name: build
+    image: docker:latest
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    commands:
+      - docker build -t kaolin
 
-- name: test
-  image: kaolin
-  commands:
-  - ls
-  - ls /data/
-  - touch /data/FOO.bar
-  - ls /data/
-  - rm /data/FOO.bar
+  - name: test
+    image: kaolin
+    commands:
+      - ls
+      - ls /data/
+      - touch /data/FOO.bar
+      - ls /data/
+      - rm /data/FOO.bar
 
 
 
