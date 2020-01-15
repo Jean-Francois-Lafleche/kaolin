@@ -4,12 +4,10 @@ name: default
 
 steps:
   - name: build
-    image: docker
-    commands:
-      - docker build -t kaolin .
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
+    image: banzaicloud/drone-kaniko
+    settings:
+      registry: 127.0.0.1:5000
+      repo: 127.0.0.1:5000/kaolin
   - name: test
     image: kaolin
     commands:
