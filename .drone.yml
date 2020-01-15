@@ -12,6 +12,7 @@ steps:
       registry: registry.gitlab.com
       repo: nv-kaolin/kaolin-ci/kaolin
       tags: ${DRONE_COMMIT_SHA}
+      cache: false
       username:
         from_secret: docker-username
       password:
