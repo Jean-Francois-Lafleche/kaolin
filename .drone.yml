@@ -13,6 +13,10 @@ steps:
       repo: registry.gitlab.com/nv-kaolin/kaolin-ci/kaolin
       tags: ${DRONE_COMMIT_SHA}
       cache: true
+      username:
+        from_secret: docker-username
+      password:
+        from_secret: docker-password
   - name: test
     image: registry.gitlab.com/nv-kaolin/kaolin-ci/kaolin:${DRONE_COMMIT_SHA}
     commands:
