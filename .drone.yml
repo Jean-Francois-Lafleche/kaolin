@@ -8,8 +8,6 @@ steps:
     settings:
       registry: registry:5000
       repo: registry:5000/kaolin
-      tags: ${DRONE_COMMIT_SHA}
-      cache: true
   - name: test
     image: kaolin
     commands:
