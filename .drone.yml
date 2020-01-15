@@ -4,12 +4,15 @@ name: default
 
 steps:
   - name: build
-    image: banzaicloud/drone-kaniko
-    settings:
-      registry: registry.local
-      repo: registry.local/kaolin
-      tags: ${DRONE_COMMIT_SHA}
-      cache: true
+    image: docker
+    commands:
+    - docker build -t kaolin
+    # image: banzaicloud/drone-kaniko
+    # settings:
+    #   registry: registry.local
+    #   repo: registry.local/kaolin
+    #   tags: ${DRONE_COMMIT_SHA}
+    #   cache: true
   - name: test
     image: kaolin
     commands:
