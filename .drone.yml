@@ -6,10 +6,10 @@ steps:
 - name: build
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
-  - touch FOOOOO.baaaaar
+  - docker build -t kaolin
 
 - name: test
-  image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
+  image: kaolin
   commands:
   - ls
   - ls /data/
