@@ -4,7 +4,7 @@ name: default
 
 steps:
   - name: build
-    image: docker:latest
+    image: docker:stable-dind
     environment:
       DOCKER_HOST: "unix:///var/run/docker.sock"
     commands:
