@@ -20,10 +20,6 @@ steps:
       - ls /data/
       - rm /data/FOO.bar
 
-volumes:
-  - name: docker_sock
-    host:
-      path: /var/run/docker.sock
 
 # 0.8
 # pipeline:
