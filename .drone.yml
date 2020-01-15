@@ -6,7 +6,7 @@ steps:
   - name: build
     image: docker
     commands:
-    - docker build -t kaolin
+    - docker build -t kaolin .
     # image: banzaicloud/drone-kaniko
     # settings:
     #   registry: registry.local
