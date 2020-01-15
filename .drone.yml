@@ -4,7 +4,7 @@ name: default
 
 steps:
   - name: build
-    image: docker:stable-dind
+    image: ablab/drone-kaniko
     environment:
       DOCKER_HOST: "unix:///var/run/docker.sock"
     commands:
