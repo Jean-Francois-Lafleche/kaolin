@@ -3,12 +3,19 @@ type: docker
 name: default
 
 steps:
+- name: build
+  image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
+  commands:
+  - touch FOOOOO.baaaaar
+
 - name: test
   image: pytorch/pytorch:1.2-cuda10.0-cudnn7-devel
   commands:
-  - ls /data/ShapeNet/
-  - touch /data/ShapeNet/FOO.bar
-  - ls /data/ShapeNet/
+  - ls
+  - ls /data/
+  - touch /data/FOO.bar
+  - ls /data/
+  - rm /data/FOO.bar
 
 
 
