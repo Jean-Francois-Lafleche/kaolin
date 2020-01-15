@@ -4,11 +4,11 @@ name: default
 
 steps:
   - name: build
-    environment:
-      - DOCKER_HOST: foo
     image: docker:latest
     commands:
       - docker build -t kaolin .
+    environment:
+      - DOCKER_HOST: foo
 
   - name: test
     image: kaolin
