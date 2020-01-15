@@ -5,8 +5,8 @@ name: default
 steps:
   - name: build
     image: ablab/drone-kaniko
-    environment:
-      DOCKER_HOST: "unix:///var/run/docker.sock"
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
     commands:
       - docker build -t kaolin .
 
