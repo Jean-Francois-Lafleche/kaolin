@@ -7,8 +7,8 @@ steps:
   image: docker:latest
   commands:
   - docker build -t kaolin .
-  environment:
-  - GOOS: foo
+  environment: 
+    GOOS: foo
 
 - name: test
   image: kaolin
