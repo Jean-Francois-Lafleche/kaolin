@@ -6,8 +6,8 @@ steps:
   - name: build
     image: banzaicloud/drone-kaniko
     settings:
-      registry: registry
-      repo: registry/kaolin
+      registry: registry:5000
+      image: registry:5000/kaolin
   - name: test
     image: kaolin
     commands:
