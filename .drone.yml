@@ -5,8 +5,6 @@ name: default
 steps:
   - name: build
     image: docker:latest
-    environment:
-      - DOCKER_HOST: foo
     commands:
       - docker build -t kaolin .
 
