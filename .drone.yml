@@ -3,21 +3,21 @@ type: docker
 name: default
 
 steps:
-- name: build
-  image: docker:latest
-  commands:
-  - docker build -t kaolin .
-  environment: 
-    GOOS: foo
+  - name: build
+    image: docker:latest
+    environment:
+      DOCKER_HOST: "unix:///var/run/docker.sock"
+    commands:
+      - docker build -t kaolin .
 
-- name: test
-  image: kaolin
-  commands:
-  - ls
-  - ls /data/
-  - touch /data/FOO.bar
-  - ls /data/
-  - rm /data/FOO.bar
+  - name: test
+    image: kaolin
+    commands:
+      - ls
+      - ls /data/
+      - touch /data/FOO.bar
+      - ls /data/
+      - rm /data/FOO.bar
 
 
 # 0.8
