@@ -9,7 +9,7 @@ steps:
       - name: docker
         path: /var/run/docker.sock
     commands:
-      - docker build -t kaolin
+      - docker build -t kaolin .
 
   - name: test
     image: kaolin
