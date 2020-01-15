@@ -9,8 +9,8 @@ steps:
     # - docker build -t kaolin .
     image: banzaicloud/drone-kaniko
     settings:
-      registry: registry.gitlab.com/nv-kaolin/kaolin-ci
-      repo: registry.gitlab.com/nv-kaolin/kaolin-ci/kaolin
+      registry: registry.gitlab.com
+      repo: nv-kaolin/kaolin-ci/kaolin
       tags: ${DRONE_COMMIT_SHA}
       cache: true
       username:
