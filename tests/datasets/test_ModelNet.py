@@ -21,7 +21,7 @@ import kaolin as kal
 import kaolin.transforms.transforms as tfs
 
 
-MODELNET_ROOT = 'data/ModelNet10/'
+MODELNET_ROOT = '/data/ModelNet10/'
 CACHE_DIR = 'tests/datasets/cache'
 
 
