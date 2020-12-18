@@ -174,9 +174,9 @@ class Timelapse:
                             face_uvs_idx, face_normals, time=iteration)
             if materials is not None:
                 if isinstance(materials, io.materials.Material):
-                    materials = {'0': materials}
+                    materials = {'_0': materials}
                 if isinstance(materials, list):
-                    materials = {str(i): v for i, v in enumerate(materials)}
+                    materials = {f'_{i}': v for i, v in enumerate(materials)}
                 vset = mesh_prim.GetVariantSets().GetVariantSet('shadingVariant')
                 for material_name, material in materials.items():
                     vset.SetVariantSelection(material_name)
